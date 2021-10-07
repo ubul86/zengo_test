@@ -8,6 +8,9 @@ let actions = {
             Vue.toasted.error(err,{'position': 'top-center'})            
         })
     },
+    setError({commit}, value){
+        commit('SET_ERROR',value);
+    },
     fetchCities( {commit}, countyId){
         axios.get(`/api/cities/show-by-county-id/${countyId}`).then(res => {
             commit('FETCH_CITIES', res.data.results)            
@@ -15,7 +18,16 @@ let actions = {
             console.log(err)
             Vue.toasted.error(err,{'position': 'top-center'})            
         })
-    },    
+    },
+    createCity( {commit}, city){        
+        axios.post('/api/cities', city)
+                .then(res => {
+                    console.log(res.data);
+                    commit('CREATE_CITY', res.data.results)
+                }).catch(err => {            
+            Vue.toasted.error(err,{'position': 'top-center'})            
+        })
+    },
     modifyCity( {commit}, city){
         const cityId=city.id;        
         axios.put(`/api/cities/${cityId}`, city)

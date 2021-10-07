@@ -2034,6 +2034,76 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 /***/ }),
 
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/CreateCity.vue?vue&type=script&lang=js&":
+/*!*********************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/CreateCity.vue?vue&type=script&lang=js& ***!
+  \*********************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) { symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); } keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  data: function data() {
+    return {
+      city: {
+        name: '',
+        id: 0,
+        county_id: 0
+      }
+    };
+  },
+  mounted: function mounted() {},
+  methods: {
+    saveCity: function saveCity() {
+      var self = this;
+
+      if (this.city.name.length > 0) {
+        self.$store.dispatch('selectCity', 0);
+        self.$store.dispatch('createCity', self.city);
+      }
+    }
+  },
+  watch: {
+    selectedCounty: function selectedCounty(newValue, oldValue) {
+      console.log("Updating from ".concat(oldValue, " to ").concat(newValue));
+      this.city.county_id = newValue;
+    }
+  },
+  beforeDestroy: function beforeDestroy() {
+    this.unwatch();
+  },
+  computed: _objectSpread(_objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapGetters"])(['selectedCounty'])), {}, {
+    isValid: function isValid() {
+      return this.city.name !== '';
+    }
+  })
+});
+
+/***/ }),
+
 /***/ "./node_modules/lodash/lodash.js":
 /*!***************************************!*\
   !*** ./node_modules/lodash/lodash.js ***!
@@ -19912,6 +19982,65 @@ render._withStripped = true
 
 /***/ }),
 
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/CreateCity.vue?vue&type=template&id=6de4e1b2&":
+/*!*************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/CreateCity.vue?vue&type=template&id=6de4e1b2& ***!
+  \*************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _vm.selectedCounty > 0
+    ? _c("div", [
+        _vm._m(0),
+        _vm._v(" "),
+        _c("div", { staticClass: "form-group" }, [
+          _c("input", {
+            staticClass: "form-control",
+            attrs: { placeholder: "example city" },
+            on: {
+              keyup: function($event) {
+                _vm.city.name = $event.target.value
+              }
+            }
+          })
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "form-group" }, [
+          _c(
+            "button",
+            {
+              staticClass: "btn btn-block btn-success",
+              attrs: { disabled: !_vm.isValid },
+              on: { click: _vm.saveCity }
+            },
+            [_vm._v("Mentés")]
+          )
+        ])
+      ])
+    : _vm._e()
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", [_c("h5", [_vm._v("Create New City")])])
+  }
+]
+render._withStripped = true
+
+
+
+/***/ }),
+
 /***/ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js":
 /*!********************************************************************!*\
   !*** ./node_modules/vue-loader/lib/runtime/componentNormalizer.js ***!
@@ -33433,6 +33562,7 @@ Vue.use(vue_toasted__WEBPACK_IMPORTED_MODULE_1___default.a, {
 });
 Vue.component('county', __webpack_require__(/*! ./components/County.vue */ "./resources/js/components/County.vue")["default"]);
 Vue.component('city', __webpack_require__(/*! ./components/City.vue */ "./resources/js/components/City.vue")["default"]);
+Vue.component('create-city', __webpack_require__(/*! ./components/CreateCity.vue */ "./resources/js/components/CreateCity.vue")["default"]);
 var app = new Vue({
   el: '#app',
   store: _store_index__WEBPACK_IMPORTED_MODULE_0__["default"]
@@ -33610,6 +33740,75 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/components/CreateCity.vue":
+/*!************************************************!*\
+  !*** ./resources/js/components/CreateCity.vue ***!
+  \************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _CreateCity_vue_vue_type_template_id_6de4e1b2___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./CreateCity.vue?vue&type=template&id=6de4e1b2& */ "./resources/js/components/CreateCity.vue?vue&type=template&id=6de4e1b2&");
+/* harmony import */ var _CreateCity_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./CreateCity.vue?vue&type=script&lang=js& */ "./resources/js/components/CreateCity.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _CreateCity_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _CreateCity_vue_vue_type_template_id_6de4e1b2___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _CreateCity_vue_vue_type_template_id_6de4e1b2___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/CreateCity.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/CreateCity.vue?vue&type=script&lang=js&":
+/*!*************************************************************************!*\
+  !*** ./resources/js/components/CreateCity.vue?vue&type=script&lang=js& ***!
+  \*************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_CreateCity_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib??ref--4-0!../../../node_modules/vue-loader/lib??vue-loader-options!./CreateCity.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/CreateCity.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_CreateCity_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/components/CreateCity.vue?vue&type=template&id=6de4e1b2&":
+/*!*******************************************************************************!*\
+  !*** ./resources/js/components/CreateCity.vue?vue&type=template&id=6de4e1b2& ***!
+  \*******************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_CreateCity_vue_vue_type_template_id_6de4e1b2___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib??vue-loader-options!./CreateCity.vue?vue&type=template&id=6de4e1b2& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/CreateCity.vue?vue&type=template&id=6de4e1b2&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_CreateCity_vue_vue_type_template_id_6de4e1b2___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_CreateCity_vue_vue_type_template_id_6de4e1b2___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
 /***/ "./resources/js/store/actions.js":
 /*!***************************************!*\
   !*** ./resources/js/store/actions.js ***!
@@ -33631,8 +33830,12 @@ var actions = {
       });
     });
   },
-  fetchCities: function fetchCities(_ref2, countyId) {
+  setError: function setError(_ref2, value) {
     var commit = _ref2.commit;
+    commit('SET_ERROR', value);
+  },
+  fetchCities: function fetchCities(_ref3, countyId) {
+    var commit = _ref3.commit;
     axios.get("/api/cities/show-by-county-id/".concat(countyId)).then(function (res) {
       commit('FETCH_CITIES', res.data.results);
     })["catch"](function (err) {
@@ -33642,8 +33845,19 @@ var actions = {
       });
     });
   },
-  modifyCity: function modifyCity(_ref3, city) {
-    var commit = _ref3.commit;
+  createCity: function createCity(_ref4, city) {
+    var commit = _ref4.commit;
+    axios.post('/api/cities', city).then(function (res) {
+      console.log(res.data);
+      commit('CREATE_CITY', res.data.results);
+    })["catch"](function (err) {
+      Vue.toasted.error(err, {
+        'position': 'top-center'
+      });
+    });
+  },
+  modifyCity: function modifyCity(_ref5, city) {
+    var commit = _ref5.commit;
     var cityId = city.id;
     axios.put("/api/cities/".concat(cityId), city).then(function (res) {
       commit('MODIFY_CITY', res.data.results);
@@ -33654,8 +33868,8 @@ var actions = {
       });
     });
   },
-  deleteCity: function deleteCity(_ref4, cityId) {
-    var commit = _ref4.commit;
+  deleteCity: function deleteCity(_ref6, cityId) {
+    var commit = _ref6.commit;
     axios["delete"]("/api/cities/".concat(cityId)).then(function (res) {
       commit('DELETE_CITY', cityId);
     })["catch"](function (err) {
@@ -33665,12 +33879,12 @@ var actions = {
       });
     });
   },
-  selectCounty: function selectCounty(_ref5, id) {
-    var commit = _ref5.commit;
+  selectCounty: function selectCounty(_ref7, id) {
+    var commit = _ref7.commit;
     commit('SELECT_COUNTY', id);
   },
-  selectCity: function selectCity(_ref6, id) {
-    var commit = _ref6.commit;
+  selectCity: function selectCity(_ref8, id) {
+    var commit = _ref8.commit;
     commit('SELECT_CITY', id);
   }
 };
@@ -33758,6 +33972,9 @@ var mutations = {
   },
   SELECT_CITY: function SELECT_CITY(state, cityId) {
     return state.selectedCity = cityId;
+  },
+  CREATE_CITY: function CREATE_CITY(state, city) {
+    state.cities.push(city);
   },
   MODIFY_CITY: function MODIFY_CITY(state, city) {
     var index = state.cities.findIndex(function (item) {

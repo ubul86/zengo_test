@@ -26,6 +26,7 @@ Vue.use(Toasted, {
 
 Vue.component('county', require('./components/County.vue').default)
 Vue.component('city', require('./components/City.vue').default)
+Vue.component('create-city', require('./components/CreateCity.vue').default)
 
 const app = new Vue({
     el: '#app',

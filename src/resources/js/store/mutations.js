@@ -10,7 +10,10 @@ let mutations = {
     },
     SELECT_CITY(state,cityId){
         return state.selectedCity=cityId;        
-    },      
+    },    
+    CREATE_CITY(state,city){
+        state.cities.push(city);
+    },
     MODIFY_CITY(state,city){
         let index = state.cities.findIndex(item => item.id === city.id)
         Vue.set(state.cities, index, city)        
