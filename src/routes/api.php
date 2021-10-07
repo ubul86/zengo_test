@@ -18,4 +18,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
+Route::get('cities/show-by-county-id/{county_id}','API\CityController@showByCountyId');
+
 Route::resource('counties', 'API\CountyController');
+Route::resource('cities', 'API\CityController');

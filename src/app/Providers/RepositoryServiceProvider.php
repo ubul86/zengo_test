@@ -17,5 +17,9 @@ class RepositoryServiceProvider extends ServiceProvider
             'App\Repositories\CountyRepository'
         );
         
+        $this->app->bind(
+            'App\Interfaces\CityInterface',
+            'App\Repositories\CityRepository'
+        );
     }
 }
