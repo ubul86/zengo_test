@@ -1899,6 +1899,91 @@ module.exports = {
 
 /***/ }),
 
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/City.vue?vue&type=script&lang=js&":
+/*!***************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/City.vue?vue&type=script&lang=js& ***!
+  \***************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) { symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); } keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  data: function data() {
+    return {
+      name: ''
+    };
+  },
+  mounted: function mounted() {},
+  methods: {
+    modifyCity: function modifyCity(cityId) {
+      this.$store.dispatch('selectCity', cityId);
+    },
+    saveCity: function saveCity() {
+      var self = this;
+
+      if (this.name.length > 0) {
+        self.$store.dispatch('modifyCity', {
+          name: self.name,
+          id: self.selectedCity
+        });
+        self.$store.dispatch('selectCity', 0);
+      }
+    },
+    cancelModifyCity: function cancelModifyCity(event) {
+      this.$store.dispatch('selectCity', 0);
+    },
+    deleteCity: function deleteCity(cityId) {
+      this.$store.dispatch('deleteCity', cityId);
+      this.$store.dispatch('selectCity', 0);
+    }
+  },
+  watch: {
+    selectedCounty: function selectedCounty(newValue, oldValue) {
+      console.log("Updating from ".concat(oldValue, " to ").concat(newValue));
+      this.$store.dispatch('fetchCities', newValue);
+    }
+  },
+  beforeDestroy: function beforeDestroy() {
+    this.unwatch();
+  },
+  computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapGetters"])(['cities', 'selectedCounty', 'selectedCity']))
+});
+
+/***/ }),
+
 /***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/County.vue?vue&type=script&lang=js&":
 /*!*****************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/County.vue?vue&type=script&lang=js& ***!
@@ -19630,6 +19715,128 @@ exports.clearImmediate = (typeof self !== "undefined" && self.clearImmediate) ||
 
 /***/ }),
 
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/City.vue?vue&type=template&id=4ee562d6&":
+/*!*******************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/City.vue?vue&type=template&id=4ee562d6& ***!
+  \*******************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _vm.selectedCounty != 0
+    ? _c("div", [
+        _c("h4", { staticClass: "text-left font-weight-bold" }, [
+          _vm._v("Cities")
+        ]),
+        _vm._v(" "),
+        _vm.cities.length > 0
+          ? _c(
+              "ul",
+              _vm._l(_vm.cities, function(city, index) {
+                return _c(
+                  "li",
+                  {
+                    class: city.id == _vm.selectedCity ? "active" : "",
+                    on: {
+                      click: function($event) {
+                        return _vm.modifyCity(city.id)
+                      }
+                    }
+                  },
+                  [
+                    _vm.selectedCity !== 0 && _vm.selectedCity === city.id
+                      ? _c("div", [
+                          _c("div", [
+                            _c("input", {
+                              staticClass: "form-control",
+                              domProps: { value: city.name },
+                              on: {
+                                keyup: function($event) {
+                                  _vm.name = $event.target.value
+                                }
+                              }
+                            })
+                          ]),
+                          _vm._v(" "),
+                          _c("div", [
+                            _c(
+                              "a",
+                              {
+                                attrs: { href: "javascript:void(0)" },
+                                on: {
+                                  click: function($event) {
+                                    $event.stopPropagation()
+                                    return _vm.saveCity()
+                                  }
+                                }
+                              },
+                              [_vm._v("Mentés")]
+                            ),
+                            _vm._v(" "),
+                            _c(
+                              "a",
+                              {
+                                attrs: { href: "javascript:void(0)" },
+                                on: {
+                                  click: function($event) {
+                                    $event.stopPropagation()
+                                    return _vm.deleteCity(city.id)
+                                  }
+                                }
+                              },
+                              [_vm._v("Törlés")]
+                            ),
+                            _vm._v(" "),
+                            _c(
+                              "a",
+                              {
+                                attrs: { href: "javascript:void(0)" },
+                                on: {
+                                  click: function($event) {
+                                    $event.stopPropagation()
+                                    return _vm.cancelModifyCity.apply(
+                                      null,
+                                      arguments
+                                    )
+                                  }
+                                }
+                              },
+                              [_vm._v("Mégsem")]
+                            )
+                          ])
+                        ])
+                      : _c("div", [_vm._v(_vm._s(city.name))])
+                  ]
+                )
+              }),
+              0
+            )
+          : _vm._e(),
+        _vm._v(" "),
+        _vm.cities.length == 0
+          ? _c("div", [
+              _vm._v(
+                "            \n        Nem található város az adott megyében\n    "
+              )
+            ])
+          : _vm._e()
+      ])
+    : _vm._e()
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
 /***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/County.vue?vue&type=template&id=3e2cca75&scoped=true&":
 /*!*********************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/County.vue?vue&type=template&id=3e2cca75&scoped=true& ***!
@@ -33225,6 +33432,7 @@ Vue.use(vue_toasted__WEBPACK_IMPORTED_MODULE_1___default.a, {
   duration: 2000
 });
 Vue.component('county', __webpack_require__(/*! ./components/County.vue */ "./resources/js/components/County.vue")["default"]);
+Vue.component('city', __webpack_require__(/*! ./components/City.vue */ "./resources/js/components/City.vue")["default"]);
 var app = new Vue({
   el: '#app',
   store: _store_index__WEBPACK_IMPORTED_MODULE_0__["default"]
@@ -33261,6 +33469,75 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 //     cluster: process.env.MIX_PUSHER_APP_CLUSTER,
 //     forceTLS: true
 // });
+
+/***/ }),
+
+/***/ "./resources/js/components/City.vue":
+/*!******************************************!*\
+  !*** ./resources/js/components/City.vue ***!
+  \******************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _City_vue_vue_type_template_id_4ee562d6___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./City.vue?vue&type=template&id=4ee562d6& */ "./resources/js/components/City.vue?vue&type=template&id=4ee562d6&");
+/* harmony import */ var _City_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./City.vue?vue&type=script&lang=js& */ "./resources/js/components/City.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _City_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _City_vue_vue_type_template_id_4ee562d6___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _City_vue_vue_type_template_id_4ee562d6___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/City.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/City.vue?vue&type=script&lang=js&":
+/*!*******************************************************************!*\
+  !*** ./resources/js/components/City.vue?vue&type=script&lang=js& ***!
+  \*******************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_City_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib??ref--4-0!../../../node_modules/vue-loader/lib??vue-loader-options!./City.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/City.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_City_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/components/City.vue?vue&type=template&id=4ee562d6&":
+/*!*************************************************************************!*\
+  !*** ./resources/js/components/City.vue?vue&type=template&id=4ee562d6& ***!
+  \*************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_City_vue_vue_type_template_id_4ee562d6___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib??vue-loader-options!./City.vue?vue&type=template&id=4ee562d6& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/City.vue?vue&type=template&id=4ee562d6&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_City_vue_vue_type_template_id_4ee562d6___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_City_vue_vue_type_template_id_4ee562d6___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
 
 /***/ }),
 
@@ -33354,9 +33631,47 @@ var actions = {
       });
     });
   },
-  selectCounty: function selectCounty(_ref2, id) {
+  fetchCities: function fetchCities(_ref2, countyId) {
     var commit = _ref2.commit;
+    axios.get("/api/cities/show-by-county-id/".concat(countyId)).then(function (res) {
+      commit('FETCH_CITIES', res.data.results);
+    })["catch"](function (err) {
+      console.log(err);
+      Vue.toasted.error(err, {
+        'position': 'top-center'
+      });
+    });
+  },
+  modifyCity: function modifyCity(_ref3, city) {
+    var commit = _ref3.commit;
+    var cityId = city.id;
+    axios.put("/api/cities/".concat(cityId), city).then(function (res) {
+      commit('MODIFY_CITY', res.data.results);
+    })["catch"](function (err) {
+      console.log(err);
+      Vue.toasted.error(err, {
+        'position': 'top-center'
+      });
+    });
+  },
+  deleteCity: function deleteCity(_ref4, cityId) {
+    var commit = _ref4.commit;
+    axios["delete"]("/api/cities/".concat(cityId)).then(function (res) {
+      commit('DELETE_CITY', cityId);
+    })["catch"](function (err) {
+      console.log(err);
+      Vue.toasted.error(err, {
+        'position': 'top-center'
+      });
+    });
+  },
+  selectCounty: function selectCounty(_ref5, id) {
+    var commit = _ref5.commit;
     commit('SELECT_COUNTY', id);
+  },
+  selectCity: function selectCity(_ref6, id) {
+    var commit = _ref6.commit;
+    commit('SELECT_CITY', id);
   }
 };
 /* harmony default export */ __webpack_exports__["default"] = (actions);
@@ -33376,8 +33691,14 @@ var getters = {
   counties: function counties(state) {
     return state.counties;
   },
+  cities: function cities(state) {
+    return state.cities;
+  },
   selectedCounty: function selectedCounty(state) {
     return state.selectedCounty;
+  },
+  selectedCity: function selectedCity(state) {
+    return state.selectedCity;
   }
 };
 /* harmony default export */ __webpack_exports__["default"] = (getters);
@@ -33429,8 +33750,26 @@ var mutations = {
   FETCH_COUNTIES: function FETCH_COUNTIES(state, counties) {
     return state.counties = counties;
   },
+  FETCH_CITIES: function FETCH_CITIES(state, cities) {
+    return state.cities = cities;
+  },
   SELECT_COUNTY: function SELECT_COUNTY(state, countyId) {
     return state.selectedCounty = countyId;
+  },
+  SELECT_CITY: function SELECT_CITY(state, cityId) {
+    return state.selectedCity = cityId;
+  },
+  MODIFY_CITY: function MODIFY_CITY(state, city) {
+    var index = state.cities.findIndex(function (item) {
+      return item.id === city.id;
+    });
+    Vue.set(state.cities, index, city);
+  },
+  DELETE_CITY: function DELETE_CITY(state, cityId) {
+    var index = state.cities.findIndex(function (item) {
+      return item.id === cityId;
+    });
+    state.cities.splice(index, 1);
   }
 };
 /* harmony default export */ __webpack_exports__["default"] = (mutations);
@@ -33449,7 +33788,8 @@ __webpack_require__.r(__webpack_exports__);
 var state = {
   counties: [],
   cities: [],
-  selectedCounty: 0
+  selectedCounty: 0,
+  selectedCity: 0
 };
 /* harmony default export */ __webpack_exports__["default"] = (state);
 

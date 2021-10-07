@@ -78,11 +78,14 @@
         <div class="row">
             <div class="col-md-5">    
                 <section>
-                    <county></county>                                    
+                    <county></county>                
+                    <create-city></create-city>
                 </section>
             </div>
             <div class="col-md-7">                
-                <section></section>
+                <section>
+                    <city></city>                
+                </section>
             </div>
         </div>
     </div>
