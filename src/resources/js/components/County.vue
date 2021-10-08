@@ -3,7 +3,7 @@
         <h4 class="text-left font-weight-bold">Counties</h4>
         <div class="form-group">
             <select class='form-control' v-model='county' @change="selectCounty($event)">
-                <option value='0' >Select Country</option>
+                <option value='0' disabled hidden>Select Country</option>
                 <option v-for='data in counties' :value='data.id' >{{ data.name }}</option>
             </select>
         </div>

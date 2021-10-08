@@ -1,7 +1,7 @@
 <template>
     <div v-if="selectedCounty>0">
         <div>
-            <h5>Create New City</h5>
+            <h4 class="text-left font-weight-bold">Create New City</h4>
         </div>
         <div class="form-group">
             <input placeholder='example city' type="text" v-model="city.name" class="form-control" />

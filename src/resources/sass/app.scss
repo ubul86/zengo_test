@@ -8,6 +8,73 @@
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
 
+html, body {
+    padding: 0px;    
+    color: #636b6f;
+    font-family: 'Nunito', sans-serif;
+    font-weight: 200;
+    height: 100vh;
+    margin: 0;
+}
+
+.full-height {
+    height: 100vh;
+}
+
+.flex-center {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+}
+
+.position-ref {
+    position: relative;
+}
+
+.top-right {
+    position: absolute;
+    right: 10px;
+    top: 18px;
+}
+
+.content {
+    text-align: center;
+}
+
+.title {
+    font-size: 84px;
+}
+
+.links > a {
+    color: #636b6f;
+    padding: 0 25px;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: .1rem;
+    text-decoration: none;
+    text-transform: uppercase;
+}
+
+.m-b-md {
+    margin-bottom: 30px;
+}
+
+body{
+    background-color: #f2f2f2 !important;
+}
+
+div {
+    padding: 5px;
+}
+
+section{
+    border: 1px solid #b0b0b0;
+    border-radius: 10px;
+    padding: 15px;
+    background: #e0e0e0;
+    height: 100%;
+}
+
 .navbar-laravel {
     background-color: #fff;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
@@ -74,6 +141,11 @@ p {
     }
 }
 
+h4{
+    border-bottom: 1px solid #e7e7e7;
+    padding-bottom: 10px;
+}
+
 input[type=text] {
     width: 100%;
     padding: 12px 20px;
@@ -106,22 +178,16 @@ input[type=submit] {
     }
 }
 
-html, body{
-    padding: 0px !important;
-}
-
-body{
-    background-color: #f2f2f2 !important;
-}
-
-div {
-    padding: 5px;
-}
-
 section{
-    border: 1px solid #b0b0b0;
-    border-radius: 10px;
-    padding: 15px;
-    background: #e0e0e0;
-    height: 100%;
+    &.left{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+    
+    &.right{
+        h5{
+            margin-top: 20px;
+        }
+    }
 }

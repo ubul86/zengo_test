@@ -119,6 +119,8 @@ You can reach the site of the default http://localhost:8000
 
 # API Endpoints
 
+You may use Postman to try the CRUD functionality. This is just for API only.
+
  Get all cities by countyId
 - GET (byID) - http://{localhost}/api/cities/show-by-county-id/{countyId}
 
