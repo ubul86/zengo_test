@@ -1,29 +1,97 @@
-# README #
+# Installation instructions!
 
-This README would normally document whatever steps are necessary to get your application up and running.
+Clone the repository
 
-### What is this repository for? ###
+    git clone https://ubul86@bitbucket.org/ubul86/zengo_test.git
 
-* Quick summary
-* Version
-* [Learn Markdown](https://bitbucket.org/tutorials/markdowndemo)
+ ## If you have docker, linux:
+ ### with make command:
+ If you have no rights to run install.sh, first you need to set the permissions to execute 
+ ```
+ chmod +x shell/install.sh
+ ```
+Copy {project_root} .env file to {project_root}/src/.env, and don't modify them
+```
+  cp .env src/.env
+ ```
+ Initialize docker with make
+ ```
+ make install
+ ```
+ Compile vue
+ ```
+ make npm run
+ ```
+ ### Without make:
+Copy {project_root} .env file to {project_root}/src/.env, and don't modify them
+```
+  cp .env src/.env
+ ```
+Builds, (re)creates, starts, and attaches to containers for a service.
+ ```
+ docker-compose up -d;
+ ```
+ Run Composer install
+```
+docker-compose run --rm composer install
+```
+```
+docker-compose run --rm composer dump-autoload 
+```
+Migrate db
+```
+docker-compose exec site php artisan migrate:fresh --seed
+```
+Publish contents
+```
+docker-compose exec site php artisan vendor:publish --all
+```
+Create the symbolic link
+```
+docker-compose exec site php artisan storage:link -v
+```
+Clear the cache
+```
+docker-compose exec site php artisan cache:clear
+```
+Add permission to storage
+```
+docker-compose exec site chmod -R 777 storage/
+```
+Install npm
+```
+docker-compose run --rm npm install
+```
+Compile vue
+```
+docker-compose run --rm npm run dev
+```
+After that You can call http://localhost:13300 in your browser.
 
-### How do I get set up? ###
+## Without docker:
 
-* Summary of set up
-* Configuration
-* Dependencies
-* Database configuration
-* How to run tests
-* Deployment instructions
+Go to the {project_root}/src directory
+```
+cd {project_root}/src
+```
+Copy the example env file and make the required configuration changes in the .env file
+```
+cp .env.example .env
+```
+Generate a new application key
 
-### Contribution guidelines ###
+    php artisan key:generate
+Run the database migrations (**Set the database connection in .env before migrating**)
 
-* Writing tests
-* Code review
-* Other guidelines
+    php artisan migrate:fresh --seed
+    
+ Compile vue
+ ```
+ npm run dev
+ ```
+  
+Start the local development server
 
-### Who do I talk to? ###
-
-* Repo owner or admin
-* Other community or team contact
+    php artisan serve
+    
+You can reach the site of the default http://localhost:8000
