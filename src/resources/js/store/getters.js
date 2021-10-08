@@ -7,5 +7,6 @@ let getters = {
      },
      selectedCounty: state => state.selectedCounty,
      selectedCity: state => state.selectedCity,
+     selectedCountyName: state => state.selectedCountyName
 }
 export default  getters

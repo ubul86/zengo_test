@@ -3,6 +3,7 @@ let state = {
     cities: [],
     selectedCounty: 0,
     selectedCity:0,
+    selectedCountyName: ''
 }
 
 export default state

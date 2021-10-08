@@ -1,6 +1,7 @@
 <template>
     <div v-if="selectedCounty!=0">
         <h4 class="text-left font-weight-bold">Cities</h4>
+        <h5>{{selectedCountyName}}</h5>
         <ul v-if="cities.length>0">            
             <li v-for='(city,index) in cities' @click='modifyCity(city.id)' :class="city.id==selectedCity?'active':''">        
                 <div v-if='selectedCity!==0 && selectedCity===city.id'>
@@ -65,6 +66,7 @@
             ...mapGetters([
                 'cities',
                 'selectedCounty',
+                'selectedCountyName',
                 'selectedCity',
             ]),
             

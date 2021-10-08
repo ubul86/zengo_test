@@ -39,6 +39,7 @@ let actions = {
     deleteCity( {commit}, cityId) {
         axios.delete(`/api/cities/${cityId}`)
                 .then(res => {
+                    Vue.toasted.success('You are successfully deleted a city!', {'position': 'top-center'})
                     commit('DELETE_CITY', cityId)
                 }).catch(err => {
             console.log(err)
@@ -47,6 +48,9 @@ let actions = {
     },
     selectCounty( {commit}, id){
         commit('SELECT_COUNTY', id);
+    },
+    selectCountyName( {commit}, name){
+        commit('SELECT_COUNTY_NAME', name);
     },
     selectCity( {commit}, id){
         commit('SELECT_CITY', id);

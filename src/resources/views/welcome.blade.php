@@ -76,6 +76,11 @@
 <div id="app">        
     <div class="container">
         <div class="row">
+            <div class="col-xs-12">
+                <h1>Cities and Counties Laravel + Vue example</h1>
+            </div>
+        </div>
+        <div class="row">
             <div class="col-md-5">    
                 <section>
                     <county></county>                

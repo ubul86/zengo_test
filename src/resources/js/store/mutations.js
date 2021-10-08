@@ -8,6 +8,9 @@ let mutations = {
     SELECT_COUNTY(state,countyId){
         return state.selectedCounty=countyId;        
     },
+    SELECT_COUNTY_NAME(state,name){
+        return state.selectedCountyName=name;        
+    },
     SELECT_CITY(state,cityId){
         return state.selectedCity=cityId;        
     },    
