@@ -116,3 +116,20 @@ php artisan serve
 ```
 
 You can reach the site of the default http://localhost:8000
+
+# API Endpoints
+
+ Get all cities by countyId
+- GET (byID) - http://{localhost}/api/cities/show-by-county-id/{countyId}
+
+Get all counties
+- GET - http://{localhost}/api/counties  
+
+create a new city
+- POST - http://{localhost}/api/cities
+
+Modify city
+- PUT - http://{localhost}/api/cities/{cityId}
+
+Delete city
+- DELETE - http://{localhost}/api/cities/{id}
