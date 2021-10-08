@@ -57,6 +57,11 @@ class CityRepository implements CityInterface {
             if ($id && !$model){
                 return $this->error("No city with ID $id", 404);
             }
+            
+            $oldModel = City::where('name', $request->name)->first();
+            if(!$id && $oldModel){
+                return $this->error("There is already a city with this name!", 500);
+            }
 
             $model->name = $request->name;
             
