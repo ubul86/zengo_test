@@ -1,41 +1,39 @@
 let actions = {
     fetchCounties( {commit}){
         axios.get('/api/counties')
-                .then(res => {                    
+                .then(res => {
                     commit('FETCH_COUNTIES', res.data.results)
-                }).catch(err => {
-            console.log(err)
-            Vue.toasted.error(err,{'position': 'top-center'})            
+                }).catch(err => {            
+            Vue.toasted.error(err.response.data.message, {'position': 'top-center'})
         })
     },
-    setError({commit}, value){
-        commit('SET_ERROR',value);
+    setError( {commit}, value){
+        commit('SET_ERROR', value);
     },
     fetchCities( {commit}, countyId){
         axios.get(`/api/cities/show-by-county-id/${countyId}`).then(res => {
-            commit('FETCH_CITIES', res.data.results)            
-        }).catch(err => {
-            console.log(err)
-            Vue.toasted.error(err,{'position': 'top-center'})            
+            commit('FETCH_CITIES', res.data.results)
+        }).catch(err => {            
+            Vue.toasted.error(err.response.data.message, {'position': 'top-center'})
         })
     },
-    createCity( {commit}, city){        
+    createCity( {commit}, city){
         axios.post('/api/cities', city)
                 .then(res => {
                     console.log(res.data);
                     commit('CREATE_CITY', res.data.results)
-                }).catch(err => {            
-            Vue.toasted.error(err,{'position': 'top-center'})            
+                    Vue.toasted.success('You are successfully created a new city!', {'position': 'top-center'})
+                }).catch(err => {
+            Vue.toasted.error(err.response.data.message, {'position': 'top-center'})
         })
     },
     modifyCity( {commit}, city){
-        const cityId=city.id;        
+        const cityId = city.id;
         axios.put(`/api/cities/${cityId}`, city)
                 .then(res => {
                     commit('MODIFY_CITY', res.data.results)
                 }).catch(err => {
-            console.log(err)
-            Vue.toasted.error(err,{'position': 'top-center'})            
+            Vue.toasted.error(err.response.data.message, {'position': 'top-center'})
         })
     },
     deleteCity( {commit}, cityId) {
@@ -44,7 +42,7 @@ let actions = {
                     commit('DELETE_CITY', cityId)
                 }).catch(err => {
             console.log(err)
-            Vue.toasted.error(err,{'position': 'top-center'})            
+            Vue.toasted.error(err.response.data.message, {'position': 'top-center'})
         })
     },
     selectCounty( {commit}, id){

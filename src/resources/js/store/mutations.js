@@ -12,7 +12,7 @@ let mutations = {
         return state.selectedCity=cityId;        
     },    
     CREATE_CITY(state,city){
-        state.cities.push(city);
+        state.cities.push(city);        
     },
     MODIFY_CITY(state,city){
         let index = state.cities.findIndex(item => item.id === city.id)

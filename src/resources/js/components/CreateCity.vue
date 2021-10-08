@@ -4,16 +4,16 @@
             <h5>Create New City</h5>
         </div>
         <div class="form-group">
-            <input placeholder='example city' class="form-control" @keyup="city.name = $event.target.value"/>
+            <input placeholder='example city' type="text" v-model="city.name" class="form-control" />
         </div>
         <div class="form-group">
-            <button :disabled="!isValid" class="btn btn-block btn-success" @click='saveCity'>Mentés</button>
+            <button :disabled="!isValid" class="btn btn-block btn-success" @click='saveCity($event)'>Mentés</button>
         </div>        
     </div>
 </template>
    
 <script>  
-    import {mapGetters} from 'vuex'
+    import {mapGetters,mapActions} from 'vuex'
     export default {  
         data(){
             return {
@@ -27,13 +27,21 @@
         mounted() {            
             
         },        
-        methods:{            
-            saveCity: function(){
-                let self=this;
-                if(this.city.name.length>0){
-                    self.$store.dispatch('selectCity',0) 
-                    self.$store.dispatch('createCity',self.city)                                         
-                }
+        methods:{    
+            ...mapActions(["createCity","selectCity"]),
+            resetInput(){
+                const self=this;
+                this.city={
+                    name: '',
+                    county_id: self.selectedCounty
+                };
+            },
+            saveCity: function(event){ 
+                event.preventDefault();
+                this.selectCity('selectCity',0) 
+                const city = {...this.city};
+                this.createCity(city)
+                this.resetInput();
             },            
         },        
         watch: {
