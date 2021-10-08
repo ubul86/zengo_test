@@ -13,7 +13,12 @@ class CountyController extends Controller {
     public function __construct(CountyInterface $countyInterface) {
         $this->countyInterface = $countyInterface;
     }
-
+    
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
     public function index() {
         return $this->countyInterface->getAllCounties();
     }

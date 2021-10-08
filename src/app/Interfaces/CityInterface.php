@@ -16,7 +16,7 @@ interface CityInterface
     public function getAllCitiesByCountyId($countyId);
     
     /**
-     * Create | Update county
+     * Create | Update city
      * 
      * @param   \App\Http\Requests\CountyRequest $request
      * @param   integer $id
@@ -26,7 +26,7 @@ interface CityInterface
     public function requestCity(CityRequest $request, $id = null);
 
     /**
-     * Delete county
+     * Delete city
      * 
      * @param   integer     $id
      *      
